@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Builder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id='form-builder' class="form-builder hidden">
+            <div style="display: flex;margin: 10px 0; gap: 10px;">
+                <button onclick="location.href='/index.html'">
+                    <i class="fa fa-home fa-lg"></i>
+                </button>
+                <h1>Form Builder</h1>
+            </div>
+            <div class="form-controls">
+                <input type="text" id="formTitle" placeholder="Form Title" class="form-title-input"
+                    onchange="formTitleChange(this.value)">
+                <div class="button-group">
+                    <button onclick="addQuestion('text')">Add Text Question</button>
+                    <button onclick="addQuestion('choice')">Add Multiple Choice</button>
+                    <button onclick="addQuestion('checkbox')">Add Checkbox</button>
+                </div>
+            </div>
+            <div id="questions-container" class="questions-container">
+                <!-- Questions will be added here -->
+            </div>
+            <button onclick="previewForm('')" class="preview-button">Preview Form</button>
+
+            <div style="display: flex;margin: 10px 0; gap: 10px;">
+                <button onclick="saveForm()" class="save-button">Save Form</button>
+                <button onclick="publishForm()" class="publish-button">Publish Form</button>
+            </div>
+        </div>
+
+        <div id="form-preview" class="form-preview hidden">
+            <h2>Form Preview</h2>
+            <div id="preview-container">
+                <!-- Preview will be shown here -->
+            </div>
+            <button onclick="backToEdit()" class="back-button">Back to Edit</button>
+        </div>
+
+        <div id="form-response" class="form-response hidden">
+            <div style="display: flex;margin: 10px 0; gap: 10px;">
+                <button onclick="location.href='/index.html'">
+                    <i class="fa fa-home fa-lg"></i>
+                </button>
+                <h1>Form Fill Response</h1>
+            </div>
+            <div id="response-container">
+                <!-- Form will be shown here -->
+            </div>
+            <button onclick="submitResponse()" type="submit" class="back-button">Submit Response</button>
+        </div>
+
+        <div id="form-response-review" class="form-response hidden">
+            <div style="display: flex;margin: 10px 0; gap: 10px;">
+                <button onclick="location.href='/index.html'">
+                    <i class="fa fa-home fa-lg"></i>
+                </button>
+                <h1>Form Response</h1>
+            </div>
+            <div id="response-review-container">
+                <!-- Form will be shown here -->
+            </div>
+        </div>
+
+    </div>
+    <script> var exports = {}; </script>
+    <script src="form.js"></script>
+</body>
+
+</html>

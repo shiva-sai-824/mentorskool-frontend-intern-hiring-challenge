@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    width: 50%;
+    min-width: 500px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 33.3333%;
+    padding: 10px;
+    min-height: 200px;
+    height: 25vh;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+    margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+/* Style the counter cards */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.new-form-button,
+.edit-form-button {
+    margin: 20px 0;
+    height: 40px;
+}
+
+.form-option-buttons {
+    margin: 2px 0;
+}
+
+.form-builder {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-title-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #673ab7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.question-block,
+.response-block {
+    background-color: #f8f8f8;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.question-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.question-type-select {
+    width: 30%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    float: right;
+}
+
+.question-answer {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.options-container {
+    margin: 10px 0;
+}
+
+.option-input {
+    width: calc(100% - 40px);
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.remove-button {
+    background-color: #f44336;
+    margin-left: 10px;
+}
+
+.preview-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.save-button,
+.publish-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.form-preview {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.back-button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.text-overflow-hidden {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.question-block {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    background: white;
+    cursor: move;
+}
+
+.drag-over {
+    border: 2px dashed #666;
+    background-color: #f0f0f0;
+}
+
+.drag-handle {
+    color: #666;
+    font-size: 20px;
+    margin-bottom: 5px;
+    user-select: none;
+}
+
+.controls-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
