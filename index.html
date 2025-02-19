@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,6 +28,344 @@
     </div>
     <script> var exports = {}; </script>
     <script src="app.js"></script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Builder with Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+            background-color: rgb(231, 231, 231);
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .heading {
+            color: green;
+        }
+
+        .title {
+            font-weight: 400;
+            letter-spacing: 1.5px;
+        }
+
+        .auth-container {
+            height: 600px;
+            width: 500px;
+            background-color: white;
+            box-shadow: 8px 8px 20px rgb(128, 128, 128);
+            position: relative;
+            overflow: hidden;
+            display: none;
+        }
+
+        .form-builder-container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            display: none;
+        }
+
+        .btn {
+            height: 60px;
+            width: 300px;
+            margin: 20px auto;
+            box-shadow: 10px 10px 30px rgb(254, 215, 188);
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .login,
+        .signup {
+            font-size: 22px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .slider {
+            height: 60px;
+            width: 150px;
+            border-radius: 50px;
+            background-image: linear-gradient(to right,
+                    rgb(255, 195, 110),
+                    rgb(255, 146, 91));
+            position: absolute;
+            top: 20px;
+            left: 100px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .moveslider {
+            left: 250px;
+        }
+
+        .form-section {
+            height: 500px;
+            width: 1000px;
+            padding: 20px 0;
+            display: flex;
+            position: relative;
+            transition: all 0.5s ease-in-out;
+            left: 0px;
+        }
+
+        .form-section-move {
+            left: -500px;
+        }
+
+        .login-box,
+        .signup-box {
+            height: 100%;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 40px;
+        }
+
+        .login-box {
+            gap: 50px;
+        }
+
+        .signup-box {
+            gap: 30px;
+        }
+
+        .ele {
+            height: 60px;
+            width: 400px;
+            outline: none;
+            border: none;
+            color: rgb(77, 77, 77);
+            background-color: rgb(240, 240, 240);
+            border-radius: 50px;
+            padding-left: 30px;
+            font-size: 18px;
+        }
+
+        .clkbtn {
+            height: 60px;
+            width: 150px;
+            border-radius: 50px;
+            background-image: linear-gradient(to right,
+                    rgb(255, 195, 110),
+                    rgb(255, 146, 91));
+            font-size: 22px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .column {
+            flex: 0 0 300px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .new-form-button {
+            width: 100%;
+            height: 150px;
+            border: 2px dashed #ccc;
+            background: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .new-form-button:hover {
+            background: #f5f5f5;
+        }
+
+        @media screen and (max-width: 650px) {
+            .auth-container {
+                height: 600px;
+                width: 300px;
+            }
+
+            .title {
+                font-size: 15px;
+            }
+
+            .btn {
+                height: 50px;
+                width: 200px;
+                margin: 20px auto;
+            }
+
+            .login,
+            .signup {
+                font-size: 19px;
+            }
+
+            .slider {
+                height: 50px;
+                width: 100px;
+                left: 50px;
+            }
+
+            .moveslider {
+                left: 150px;
+            }
+
+            .form-section {
+                height: 500px;
+                width: 600px;
+            }
+
+            .form-section-move {
+                left: -300px;
+            }
+
+            .login-box,
+            .signup-box {
+                height: 100%;
+                width: 300px;
+            }
+
+            .ele {
+                height: 50px;
+                width: 250px;
+                font-size: 15px;
+            }
+
+            .clkbtn {
+                height: 50px;
+                width: 130px;
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="heading">Form Builder</h1>
+        <h3 class="title">Create and Manage Your Forms</h3>
+    </header>
+
+    <!-- Auth Container -->
+    <div class="auth-container" id="authContainer">
+        <div class="slider"></div>
+        <div class="btn">
+            <button class="login">Login</button>
+            <button class="signup">Signup</button>
+        </div>
+
+        <div class="form-section">
+            <div class="login-box">
+                <input type="email" class="email ele" placeholder="youremail@email.com">
+                <input type="password" class="password ele" placeholder="password">
+                <button class="clkbtn" onclick="handleLogin()">Login</button>
+            </div>
+
+            <div class="signup-box">
+                <input type="text" class="name ele" placeholder="Enter your name">
+                <input type="email" class="email ele" placeholder="youremail@email.com">
+                <input type="password" class="password ele" placeholder="password">
+                <input type="password" class="password ele" placeholder="Confirm password">
+                <button class="clkbtn" onclick="handleSignup()">Signup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Builder Container -->
+    <div class="form-builder-container" id="formBuilderContainer">
+        <div class="row" id="new-card-row">
+            <div class="column">
+                <div class="card">
+                    <button class="new-form-button" onclick="location.href='form/'">
+                        <i class="fa fa-plus fa-lg"></i>
+                    </button>
+                    <p>New Form</p>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="unpublished-form-card-row"></div>
+        <div class="row" id="published-form-card-row"></div>
+    </div>
+
+    <script>
+        let signup = document.querySelector(".signup");
+        let login = document.querySelector(".login");
+        let slider = document.querySelector(".slider");
+        let formSection = document.querySelector(".form-section");
+        const authContainer = document.getElementById('authContainer');
+        const formBuilderContainer = document.getElementById('formBuilderContainer');
+
+        // Show auth container by default
+        authContainer.style.display = 'block';
+
+        signup.addEventListener("click", () => {
+            slider.classList.add("moveslider");
+            formSection.classList.add("form-section-move");
+        });
+
+        login.addEventListener("click", () => {
+            slider.classList.remove("moveslider");
+            formSection.classList.remove("form-section-move");
+        });
+
+        function handleLogin() {
+            // Add your login logic here
+            // For demo, we'll just switch to the form builder
+            authContainer.style.display = 'none';
+            formBuilderContainer.style.display = 'block';
+        }
+
+        function handleSignup() {
+            // Add your signup logic here
+            // For demo, we'll just switch to the form builder
+            authContainer.style.display = 'none';
+            formBuilderContainer.style.display = 'block';
+        }
+    </script>
 </body>
 
 </html>
